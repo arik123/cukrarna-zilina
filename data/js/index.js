@@ -35,7 +35,6 @@ function rem(pocet, id) {
         if (xhr.status !== 200) {
             alert('Request failed.  Returned status of ' + xhr.status);
         }
-        
         loadKosik();
     };
     xhr.send(encodeURI('id=' + id + "&pocet=" + pocet)); 
@@ -119,8 +118,9 @@ function tomorrow() {
 
 
 var kosikON = false
-window.onclick = function(event) { 
-    var isKosik = containClass(event.path, "kosik");
+document.onclick = function(event) { 
+    var path = event.path || (event.composedPath && event.composedPath()) || composedPath(event.target);
+    var isKosik = containClass(path, "kosik");
     if(isKosik){
         if(!kosikON){
             kosikON = true;
@@ -136,6 +136,27 @@ window.onclick = function(event) {
         }
     }
 }
+
+function composedPath (el) {
+
+    var path = [];
+
+    while (el) {
+
+        path.push(el);
+
+        if (el.tagName === 'HTML') {
+
+            path.push(document);
+            path.push(window);
+
+            return path;
+       }
+
+       el = el.parentElement;
+    }
+}
+
 
 function containClass(path, find){
     var found = false;

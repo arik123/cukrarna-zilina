@@ -41,6 +41,12 @@ app.get('/kosikUp/', (req, res)=> {
     res.render("parts/kosik", {"kosik": req.session.kosik, "kolace": kolace});
 });
 
+app.get('/objednavkaUp/', (req, res)=> {
+    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
+    res.render("objednavka", {"kosik": req.session.kosik, "kolace": kolace});
+});
+
+
 app.post('/addToCart/', (req,res)=>{
     if(typeof req.body.id != "undefined" && typeof req.body.pocet != "undefined" && Math.floor(Number(req.body.pocet)) > 0) {
         if( typeof req.session.kosik != "undefined"){
