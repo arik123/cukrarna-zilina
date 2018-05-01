@@ -7,6 +7,9 @@
     "name": "malia"
   },
   "scripts": { "start": "node main.js" },
+  "engines": {
+    "node": "9.8.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.2",
     "connect-mongo": "^2.0.1",
@@ -16,4 +19,5 @@
     "helmet": "^3.12.0",
     "sse-express": "^1.0.2"
   }
+
 }
