@@ -1,7 +1,6 @@
 module.exports = scrap;
 
 const https = require('https');
-var html2json = require('html2json').html2json;
 var fs = require('fs');
 
 var ended = 0;
