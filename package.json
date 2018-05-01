@@ -2,10 +2,11 @@
   "name": "obchod",
   "version": "0.0.0",
   "description": "obchod",
-  "main": "app.js",
+  "main": "main.js",
   "author": {
     "name": "malia"
   },
+  "scripts": { "start": "main.js" },
   "dependencies": {
     "body-parser": "^1.18.2",
     "connect-mongo": "^2.0.1",
