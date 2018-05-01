@@ -19,7 +19,7 @@ app.use(session({
 }));
 app.use(bodyParser.json()); //Parses the text as JSON and exposes the resulting object on req.body.
 app.use('/data/', express.static('data'));
-app.listen(80, ()=>{console.log("server started!!")});
+app.listen(process.env.PORT || 80, ()=>{console.log("server started!!")});
 /*
 Schema :  Meno, obrazok, popis, input:{pocet}, cena, datum donesenia {HTML CALENDAR}
 */
