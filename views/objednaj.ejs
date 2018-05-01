@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("parts/head")%>
+<body>
+    <%-include("parts/nav")%>
+    <div class="content">
+        <div class="objednavka">
+                <%
+            if(typeof kosik != undefined){
+                var cenaSpolu = 0;
+                kosik.forEach((item)=>{
+                cenaSpolu += kolace[item.id].cena * item.pocet;
+            %>
+                <div class="ObjednajVKosiku">
+                    <div class="obrazok" style="background: url(<%-kolace[item.id].obrazok%>) no-repeat center center; background-size: contain"></div>
+                    <!--<img src="<%-kolace[item.id].obrazok%>" alt="obrazok" width="64px" height="36px">-->
+                    <h3><%-kolace[item.id].meno%> (<%-kolace[item.id].vaha%> g)</h3> 
+                    <%-item.pocet%> x <%-kolace[item.id].cena%> € == <%-(kolace[item.id].cena * item.pocet).toFixed(2)%>€
+                    odober: <input type="number" name="pocetOdober" value=""> 
+                    <div class="remFromCart" data-id="<%-item.id%>" onclick="javascript:(this.parentElement.children[2].value!='') ? rem(this.parentElement.children[2].value, this.dataset.id) : alert('zadaj pocet')">odober</div>
+                </div>
+            <%
+            });
+            %>
+                <div id="objednavkaSpolu">
+                    Spolu: <%-cenaSpolu.toFixed(2)%> €
+                    <div id="objednaj" onclick="alert('objednavanie este neni urobene :(')">
+                        objednaj
+                    </div>
+                </div>
+            <%
+            }
+        %>
+        </div>
+    </div>
+</body>
+</html>

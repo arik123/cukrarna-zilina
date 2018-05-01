@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("parts/head")%>
+    <body>
+        <%-include("parts/nav")%>
+        <div class="content">
+            <div class="list">
+                <% kolace.forEach((kolac, index)=>{ %>  
+
+                <div class="item">
+                    <div class="obrazok" style="background: url(<%-kolac.obrazok%>) no-repeat center center; background-size: contain">
+                        <div class="info">
+                            <div class="kolacName">
+                                <%-kolac.meno%>
+                            </div>
+                            <div class="kolacPopis">
+                                <%-kolac.popis%>
+                            </div>    
+                            <div class="kolacVaha">
+                                <%-kolac.vaha%> g
+                            </div>
+                        </div>   
+                    </div>
+                    
+                    <div class="order">
+                        tu sa objedna
+                        <input type="number" name="pocet" value="">
+                        cena je: <%-kolac.cena%>€
+                        <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+            <input id="date" type="date" name="date" value="">
+        </div>
+    </body>
+</html>

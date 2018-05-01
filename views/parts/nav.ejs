@@ -1,0 +1,25 @@
+<div id="top"> </div>
+<nav>
+    <a href="/">Uvod</a>
+    <a href="/nakup/">Nakup</a>
+    <a href="">Link3</a>
+</nav>
+
+<%
+if(typeof NOkosik == "undefined" || NOkosik == false){
+%>
+<a herf="javascript:void(0)" class="kosik">
+    <div id="kosikIMG">
+        <%if(kosik.length > 0){%>
+        <div id="kosikPocet">
+            <%-kosik.length%>
+        </div>    
+        <%}%>
+    </div>
+    <div id="vkosiku">
+        <%-include("./kosik")%>
+    </div>  
+</a>
+<%
+}
+%>

@@ -1,0 +1,196 @@
+.item{
+    margin: 5px;
+    border: 2px blue solid;
+    display: inline-block;
+    padding: 5px;
+    text-align:center;
+    width: 370px;
+    height: 250
+}
+
+.list{
+    text-align: center;
+    overflow: hidden;
+}
+
+.obrazok{
+    width: 320px;
+    height: 180px;
+    margin: auto;
+}
+.kolac{
+    max-width: 320px;
+    max-height: 180px;
+}
+
+.kosik{
+    padding: 1vw;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    position: fixed;
+    top: 0px;
+    right: 0;
+    text-align: center;
+    /*overflow: hidden;*/
+    float: right;
+    width: 18%;
+    min-width: 180px;
+}
+
+.kosik > *:first-child {
+    margin-bottom: 15px;
+}
+
+#vkosiku{
+    padding: 10px;
+    background-color: #ddd;
+    display: none;
+    
+}
+/*
+.kosik:active #vkosiku{
+    display: block;
+}
+*/
+.content{
+    margin-top: 50px;
+}
+
+nav {
+    /*overflow: hidden;*/
+    padding: 10px;
+    background-color: #eee;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    right: 0;
+    min-height: 20px;
+    width: 100%; /* Full width */
+}
+
+.info{
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.obrazok:hover .info{
+    display: block;
+}
+.obrazok:hover .info{
+    background: rgba(255, 255, 255, 0.6)
+}
+
+.addToCart{
+    width: 100px;
+    display: block;
+    border: 2px #888 solid;
+    margin: auto;
+    margin-top: 5px;
+}
+.addToCart:hover{
+    background-color: #ddd;
+}
+.addToCart:active{
+    background-color: #aaa;
+}
+.order{
+    text-align: center;
+}
+
+.kolacVKosiku{
+    border: 2px solid #f00;
+}
+
+
+.animate {
+    width: 20vw;
+    position: fixed;
+    animation: addCart 0.3s steps(10000);
+    animation-iteration-count: 1;
+    -webkit-transition: all 0.3s cubic-bezier(0,1,0,1);
+    -moz-transition: all 0.3s cubic-bezier(0,1,0,1);
+    -o-transition: all 0.3s cubic-bezier(0,1,0,1);
+    -ms-transition: all 0.3s cubic-bezier(0,1,0,1);
+    transition: all 0.3s cubic-bezier(0,1,0,1);
+}
+
+@keyframes addCart {
+    0%  {
+      opacity: 1;
+      filter: alpha(opacity=100);
+  }
+    100% {
+      opacity: 0.3;
+      filter: alpha(opacity=30);
+      top: -6vh;
+      left: 80vw;
+      transform: scale(0.05);
+ }
+}
+
+.kolacVaha{
+    position: absolute;
+    display: block;
+    padding-bottom: 10px;
+    bottom: 0px;
+    right: 40%;
+    width: 20%;
+    color: #f00;
+}
+
+#kosikIMG{
+    position: relative;
+    background: url(https://www.prohunter.sk/resize/e/800/800/files/ikony-ako/nakupny-kosik.png) no-repeat center center; 
+    background-size: contain; 
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
+#kosikPocet{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    border-radius: 7px;
+    background-color: red;
+    font-size: 15px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#objednaj{
+    margin-left: 10px;
+    display: inline-block;
+    background-color: #10c630;
+    padding: 5px;
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+
+#kosikSpolu{
+    margin-top: 10px;
+}
+
+.remFromCart{
+    margin-left: 10px;
+    display: inline-block;
+    background-color: #e62030;
+    padding: 5px;
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+.objednajVKosiku{
+    
+    margin: auto;
+}
+.objednavka{
+    text-align: center;
+}
+#objednavkaSpolu{
+    margin: 20px;
+    padding: 20px;
+    border: #888 solid 3px;
+}

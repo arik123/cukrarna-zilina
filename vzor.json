@@ -1,0 +1,23 @@
+[
+{
+    "vaha": 150,
+    "meno": "kolacik1",
+    "popis": "tento kolacik nieje popisany",
+    "cena": 1.58 ,
+    "obrazok": "./data/img/kolac1.jpg"
+},
+{
+    "vaha": 120,
+    "meno": "kolacik2",
+    "popis": "tento kolacik nieje popisany",
+    "cena": 2 ,
+    "obrazok": "./data/img/kolac2.jpg"
+},
+{
+    "vaha": 100,
+    "meno": "kolacik3",
+    "popis": "tento kolacik nieje popisany",
+    "cena": 1.80 ,
+    "obrazok": "./data/img/kolac1.jpg"
+}
+]
