@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 const fs = require("fs");
 var helmet = require('helmet');
 var session = require('express-session');
+var scrap = require("./scrap.js")
 //let sseExpress = require('sse-express');
 
 var app = express();
@@ -10,6 +11,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+scrap();
+setInterval(()=>{scrap()}, 60 * 5 * 1000);
 
 app.use(helmet());
 app.use(session({
