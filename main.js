@@ -4,6 +4,7 @@ const fs = require("fs");
 var helmet = require('helmet');
 var session = require('express-session');
 var scrap = require("./scrap.js")
+var config = JSON.parse(fs.readFileSync("./config.json"));
 //let sseExpress = require('sse-express');
 
 var app = express();
@@ -11,10 +12,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
+/*
 scrap();
 setInterval(()=>{scrap()}, 60 * 60 * 8 * 1000);
-
+*/
 app.use(helmet());
 app.use(session({
     secret: 'afasfsafasfazvxcbgnvhmbjlyhfvhndfgvxc',
@@ -30,7 +31,8 @@ Schema :  Meno, obrazok, popis, input:{pocet}, cena, datum donesenia {HTML CALEN
 app.get('/nakup', (req, res)=>{
     if(typeof req.session.kosik == "undefined") req.session.kosik = [];
     var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
-    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace});
+    let admin = (typeof req.session.admin != "undefined" && req.session.admin != false);
+    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace, "admin": admin});
 });
 app.get('/', (req, res)=>{
     res.render("index", {});
@@ -115,4 +117,22 @@ app.post("/admin/login/", (req, res)=>{
     else{
         res.render("login", {'err': true})
     }
+});
+
+app.get("/admin/logout/", (req, res)=>{
+    req.session.admin = false;
+    res.redirect("/nakup/");
+});
+
+app.post("/nakup/", (req, res)=>{
+    if(typeof req.session.admin == "undefined" || req.session.admin == false) res.redirect(303, "/nakup/");
+
+    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
+    var found = kolace.findIndex(function(element) {
+        return (element.meno == req.body.meno);
+    });
+    kolace[found].cena = req.body.cena;
+    kolace[found].touched = true;
+    fs.writeFileSync("./vsetky.json", JSON.stringify(kolace));
+    res.redirect(303, "/nakup/");
 });

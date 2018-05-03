@@ -26,15 +26,29 @@
                     </div>
                     
                     <div class="order">
+                        <%if(admin){%>
+                            <form method="post">
+                            cena:
+                                <input type="number" name="cena" value="<%-parseFloat(kolac.cena)%>" step='0.01'>
+                                <input type="hidden" name="meno" value = "<%-kolac.meno%>" />
+                                <button type="submit" style="color: <%-(typeof kolac.touched != 'undefined' && kolac.touched != false)? 'black' : 'red'%>">Updatni</button>
+                            </form>
+                        <%} else {%>
                         tu sa objedna
                         <input type="number" name="pocet" value="">
                         cena je: <%-kolac.cena%>€
                         <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
+                        <%}%>
                     </div>
                 </div>
                 <% }) %>
             </div>
             <input id="date" type="date" name="date" value="">
         </div>
+        <%if(admin){%>
+        <footer>
+            <a href="/admin/logout/">logout</a>
+        </footer>
+        <%}%>
     </body>
 </html>

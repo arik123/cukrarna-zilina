@@ -194,3 +194,17 @@ nav {
     padding: 20px;
     border: #888 solid 3px;
 }
+
+#login{
+    /*position: absolute;*/
+    text-align: center;
+    margin: auto;
+    margin-top: 40vh;
+    padding: 40px;
+    border: #aaa;
+    background-color: #ccc;
+}
+
+.err{
+    color: red;
+}
