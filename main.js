@@ -103,3 +103,16 @@ app.get('/nakup/objednavka', (req, res)=>{
     var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
     res.render("objednaj", {"kosik": req.session.kosik, "kolace": kolace, "NOkosik": true});
 });
+
+app.get("/admin/login/", (req, res)=>{
+    res.render("login");
+});
+app.post("/admin/login/", (req, res)=>{
+    if(req.body.name == config.admin.name && req.body.pass == config.admin.pass){
+        req.session.admin = true;
+        res.redirect("/");
+    }
+    else{
+        res.render("login", {'err': true})
+    }
+});
