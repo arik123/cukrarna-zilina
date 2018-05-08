@@ -12,10 +12,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-/*
+
 scrap();
 setInterval(()=>{scrap()}, 60 * 60 * 8 * 1000);
-*/
+
 app.use(helmet());
 app.use(session({
     secret: 'afasfsafasfazvxcbgnvhmbjlyhfvhndfgvxc',
