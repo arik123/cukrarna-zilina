@@ -124,7 +124,7 @@ app.get("/admin/logout/", (req, res)=>{
     res.redirect("/nakup/");
 });
 
-app.post("/nakup/", (req, res)=>{
+app.post("/nakup/", (req, res)=>{  //pre admina
     if(typeof req.session.admin == "undefined" || req.session.admin == false) res.redirect(303, "/nakup/");
 
     var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
