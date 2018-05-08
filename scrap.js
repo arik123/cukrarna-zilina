@@ -6,6 +6,8 @@ var fs = require('fs');
 var ended = 0;
 var pocet = 0;
 var vsetky = [];
+var stare = JSON.parse(fs.readFileSync("./vsetky.json"));
+console.log(Array.isArray(stare));
 
 function scrap(){
 
@@ -54,6 +56,7 @@ function end() {
         })
         fs.writeFileSync("./vsetky.json", JSON.stringify(vsetky));
     })
+    console.log("scrapping finished");
 }
 
 function wait() {
@@ -83,11 +86,22 @@ function childSite(link, catname, callback){
             var result, rows, cols, obsahy;
             /*while ((result = reg.exec(data)) !== null) {
                 while ((rows = row.exec(result)) !== null){*/
-                    console.log((catname == "klasické")? link : catname);
+                    console.log(catname)
                     while ((cols = col.exec(data)) !== null){
                         //console.log("stuck")
                         //console.log(cols[1] + " " +  cols[2] + " " + cols[3])
-                        all.push({"obrazok": cols[1], "meno": cols[2], "vaha": cols[3], "alergeny": cols[4], "popis": "zatial nieje popis", "cena": Math.floor(Math.random()*1000)/100});
+                        var find = stare.find(function(element){
+                            return element.meno ==  cols[2];
+                        });
+                        if(find){
+                            var obrazok = (cols[1] == find.obrazok)? find.obrazok : cols[1];
+                            var vaha = (cols[3] == find.vaha)? find.vaha : cols[3];
+                            var alergeny = (cols[4] == find.alergeny)? find.alergeny : cols[4];
+                            var touched = (find.touched) ? true : false;
+                            all.push({"obrazok": obrazok, "meno": cols[2], "vaha": vaha, "alergeny": alergeny, "popis": "zatial nieje popis", "cena": find.cena, "category": catname, "touched": touched});
+                        }else{
+                            all.push({"obrazok": cols[1], "meno": cols[2], "vaha": cols[3], "alergeny": cols[4], "popis": "zatial nieje popis", "cena": Math.floor(Math.random()*1000)/100, "category": catname, "touched": false});
+                        }
                     }
              /*   }
             }*/

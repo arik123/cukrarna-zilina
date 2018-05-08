@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 scrap();
-setInterval(()=>{scrap()}, 60 * 60 * 8 * 1000);
+//setInterval(()=>{scrap()}, 60 * 60 * 8 * 1000);
 
 app.use(helmet());
 app.use(session({
