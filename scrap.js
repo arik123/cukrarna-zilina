@@ -10,7 +10,7 @@ var ended = 0;
 var pocet = 0;
 var vsetky = [];
 var cats = [];
-var stare = {};
+var stare = [];
 if (fs.existsSync("./vsetky.json")) {
     stare = JSON.parse(fs.readFileSync("./vsetky.json"));
 }
