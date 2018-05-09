@@ -1,11 +1,15 @@
 module.exports = scrap;
 
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
 const https = require('https');
 var fs = require('fs');
 
 var ended = 0;
 var pocet = 0;
 var vsetky = [];
+var cats = [];
 var stare = JSON.parse(fs.readFileSync("./vsetky.json"));
 console.log(Array.isArray(stare));
 
@@ -40,6 +44,7 @@ function scrap(){
       console.log("Error: " + err.message);
     });
 }
+scrap.event = eventEmitter;
 
 function end() {
     fs.readdir("./cashe", (err, files) => {
@@ -55,8 +60,10 @@ function end() {
             
         })
         fs.writeFileSync("./vsetky.json", JSON.stringify(vsetky));
+        fs.writeFileSync("./pattern.json", JSON.stringify({"category": cats}));
     })
     console.log("scrapping finished");
+    eventEmitter.emit("loaded");
 }
 
 function wait() {
@@ -67,6 +74,7 @@ function wait() {
 }
 
 function childSite(link, catname, callback){
+    cats.push(catname);
     https.get(link, (resp) => {
           let data = '';
         

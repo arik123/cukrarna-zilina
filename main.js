@@ -13,8 +13,17 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+var kolace = [];
+var pattern = {};
+
 scrap();
-//setInterval(()=>{scrap()}, 60 * 60 * 8 * 1000);
+scrap.event.on("loaded", ()=>{
+    pattern = JSON.parse(fs.readFileSync("./pattern.json"));
+    kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
+    console.log(pattern);
+})
+
+setInterval(()=>{scrap(); pattern = JSON.parse(fs.readFileSync("pattern.json"));}, 60 * 60 * 8 * 1000);
 
 app.use(helmet());
 app.use(session({
@@ -28,23 +37,23 @@ app.listen(process.env.PORT || 80, ()=>{console.log("server started!!")});
 /*
 Schema :  Meno, obrazok, popis, input:{pocet}, cena, datum donesenia {HTML CALENDAR}
 */
-app.get('/nakup', (req, res)=>{
+
+app.get('/nakup/', (req, res)=>{
     if(typeof req.session.kosik == "undefined") req.session.kosik = [];
-    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
+    console.log(req.query);
     let admin = (typeof req.session.admin != "undefined" && req.session.admin != false);
-    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace, "admin": admin});
+    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace, "admin": admin, "pattern": pattern, "querry": req.query});
 });
+
 app.get('/', (req, res)=>{
     res.render("index", {});
 });
 
 app.get('/kosikUp/', (req, res)=> {
-    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
     res.render("parts/kosik", {"kosik": req.session.kosik, "kolace": kolace});
 });
 
 app.get('/objednavkaUp/', (req, res)=> {
-    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
     res.render("objednavka", {"kosik": req.session.kosik, "kolace": kolace});
 });
 
@@ -102,7 +111,6 @@ app.get('/kosikPocet/', (req, res)=>{
 
 app.get('/nakup/objednavka', (req, res)=>{
     if(typeof req.session.kosik == "undefined") req.session.kosik = [];
-    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
     res.render("objednaj", {"kosik": req.session.kosik, "kolace": kolace, "NOkosik": true});
 });
 
@@ -126,13 +134,13 @@ app.get("/admin/logout/", (req, res)=>{
 
 app.post("/nakup/", (req, res)=>{  //pre admina
     if(typeof req.session.admin == "undefined" || req.session.admin == false) res.redirect(303, "/nakup/");
-
-    var kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
-    var found = kolace.findIndex(function(element) {
-        return (element.meno == req.body.meno);
-    });
-    kolace[found].cena = req.body.cena;
-    kolace[found].touched = true;
-    fs.writeFileSync("./vsetky.json", JSON.stringify(kolace));
-    res.redirect(303, "/nakup/");
+    else{
+        var found = kolace.findIndex(function(element) {
+            return (element.meno == req.body.meno);
+        });
+        kolace[found].cena = req.body.cena;
+        kolace[found].touched = true;
+        fs.writeFileSync("./vsetky.json", JSON.stringify(kolace));
+        res.redirect(303, "/nakup/");
+    }
 });

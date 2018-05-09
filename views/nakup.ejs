@@ -1,3 +1,15 @@
+<%
+if( !Array.isArray(querry.category) && typeof querry.category != "undefined") querry.category = [querry.category];
+
+var filtered = kolace.filter(function(element){
+                    
+    if( Array.isArray(querry.category) ){
+        return querry.category.includes(element.category);
+    }
+    else return true;
+});
+
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,8 +19,20 @@
     <body>
         <%-include("parts/nav")%>
         <div class="content">
+            <div id="filter">
+                <form>
+                        <%pattern.category.forEach((element)=>{%>
+                        <input type="checkbox" name="category" value="<%-element%>" <%-(typeof querry.category != "undefined" && querry.category.includes(element))? "checked" : ""%> ><%-element%><br>
+                        <%});%>
+                    <button type="submit">vyhladaj</button>
+                </form>
+                <form method="post">
+                    <button type="submit">reset</button>
+                </form>
+            </div>
             <div class="list">
-                <% kolace.forEach((kolac, index)=>{ %>  
+                <% 
+                filtered.forEach((kolac, index)=>{%>  
 
                 <div class="item">
                     <div class="obrazok" style="background: url(<%-kolac.obrazok%>) no-repeat center center; background-size: contain">
