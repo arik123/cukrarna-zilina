@@ -71,7 +71,7 @@ function end() {
         fs.writeFileSync("./pattern.json", JSON.stringify({"category": cats}));
     })
     console.log("scrapping finished");
-    eventEmitter.emit("loaded");
+    eventEmitter.emit("loaded", {"category": cats});
 }
 
 function wait() {
