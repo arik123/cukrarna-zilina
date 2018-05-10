@@ -20,7 +20,9 @@ console.log(Array.isArray(stare));
 
 function scrap(){
 
-
+    if (!fs.existsSync("./cashe")){
+        fs.mkdirSync("./cashe");
+    }
 
     https.get('https://dsystem.synapse5.com/katalog-dortu/?kategorie=19', (resp) => {
       let data = '';
@@ -53,9 +55,6 @@ scrap.event = eventEmitter;
 
 function end() {
 
-    if (!fs.existsSync("./cashe")){
-        fs.mkdirSync("./cashe");
-    }
     fs.readdir("./cashe", (err, files) => {
         var a = [];
         files.forEach(file => {
@@ -63,8 +62,8 @@ function end() {
         });
         a.forEach((file) => {
             var parsed = JSON.parse(file);
-            parsed.forEach((jeden) => {
-                vsetky.push(jeden)
+            parsed.forEach((jedenKolac) => {
+                vsetky.push(jedenKolac)
             })
             
         })
