@@ -17,9 +17,9 @@ var kolace = [];
 var pattern = {};
 
 scrap();
-scrap.event.on("loaded", (patternIN)=>{
+scrap.event.on("loaded", (patternIN, vsetky)=>{
     pattern = patternIN; //JSON.parse(fs.readFileSync("./pattern.json")) || ;
-    kolace = JSON.parse(fs.readFileSync('./vsetky.json'));
+    kolace = vsetky;//JSON.parse(fs.readFileSync('./vsetky.json'));
     console.log(pattern);
 })
 
