@@ -52,6 +52,10 @@ function scrap(){
 scrap.event = eventEmitter;
 
 function end() {
+
+    if (!fs.existsSync("./cashe")){
+        fs.mkdirSync("./cashe");
+    }
     fs.readdir("./cashe", (err, files) => {
         var a = [];
         files.forEach(file => {
