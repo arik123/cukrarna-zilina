@@ -6,41 +6,87 @@ body{
     right: 0px;
     top: 0px;
 }
-#header{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 80px;
-    background-color: #d21722;
+
+
+@media (min-width: 600px){
+    #header{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        height: 80px;
+        background-color: #d21722;
+    }
+
+    .headLink{
+        margin: 18px;
+        font-size: 22px;
+        float: right;
+        color: #fff;
+        padding: 7px;
+    }
+    .headButton {
+        margin: 18px;
+        font-size: 22px;
+        /*font-family: Roboto;*/
+        float: right;
+        padding: 7px;
+        background: #fff;
+        color: #d21722;
+        border-radius: 5px;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:link, a:visited {
+        color: white;
+    }
+    a:hover {
+        color: black;
+    }
+}
+@media (max-width: 600px){
+    #header{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        height: 80px;
+        background-color: #d21722;
+    }
+
+    .headLink{
+        margin: 18px;
+        font-size: 22px;
+        float: right;
+        color: #fff;
+        padding: 7px;
+    }
+    .headButton {
+        margin: 18px;
+        font-size: 22px;
+        /*font-family: Roboto;*/
+        float: right;
+        padding: 7px;
+        background: #fff;
+        color: #d21722;
+        border-radius: 5px;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:link, a:visited {
+        color: white;
+    }
+    a:hover {
+        color: black;
+    }
+    #znak{
+        display: none;
+        margin-left: 20px;
+    }
 }
 
-.headLink{
-    margin: 18px;
-    font-size: 22px;
-    float: right;
-    color: #fff;
-    padding: 7px;
-}
-.headButton {
-    margin: 18px;
-    font-size: 22px;
-    /*font-family: Roboto;*/
-    float: right;
-    padding: 7px;
-    background: #fff;
-    color: #d21722;
-    border-radius: 5px;
-}
-a {
-    text-decoration: none;
-}
-a:link, a:visited {
-    color: white;
-}
-a:hover {
-    color: black;
-}
 
 #topImage{
     height: 100vh;
@@ -62,8 +108,8 @@ a:hover {
     text-align: center;
     margin: 0px;
     padding-top: 40vh;
-    padding-left: 25vw;
-    padding-right: 25vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
 }
 
 .contentPart{
@@ -75,6 +121,21 @@ a:hover {
     grid-template-columns: 50% 50%;
     text-align: left;
 }
+@media screen and (max-width: 600px){
+    .contentPart{
+        grid-template-columns: 100% !important;
+    }
+    #topImage h1{
+        font-size: 32px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    p{
+        font-size: 15px;
+    }
+
+}
 
 .contentPart img{
     margin: 5%;
@@ -85,10 +146,10 @@ a:hover {
     width: 100%;
 }
 h2{
-    font-size: 3vw;
+    font-size: 40px;
 }
 p{
-    font-size: calc(calc(1vw + 1vh)/2 * 2);
+    font-size: 20px;
 }
 
 .redBar{
