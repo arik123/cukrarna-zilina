@@ -51,22 +51,22 @@ body{
         top: 0px;
         left: 0px;
         right: 0px;
-        height: 80px;
         background-color: #d21722;
     }
 
     .headLink{
+        text-align: center;
+        display: block;
         margin: 18px;
         font-size: 22px;
-        float: right;
         color: #fff;
         padding: 7px;
     }
     .headButton {
+        text-align: center;
         margin: 18px;
         font-size: 22px;
         /*font-family: Roboto;*/
-        float: right;
         padding: 7px;
         background: #fff;
         color: #d21722;
@@ -83,6 +83,12 @@ body{
     }
     #znak{
         display: none;
+        margin-left: 20px;
+    }
+}
+@media (max-width: 670px){
+    #znak{
+        display: none !important;
         margin-left: 20px;
     }
 }
@@ -121,9 +127,21 @@ body{
     grid-template-columns: 50% 50%;
     text-align: left;
 }
+@media(min-width: 600px){
+    .contentPart:nth-of-type(odd) {
+        grid-template-areas: "image popis" 
+    }
+    .contentPart:nth-of-type(even) {
+        grid-template-areas: "popis image" 
+    }
+}
+
+
 @media screen and (max-width: 600px){
     .contentPart{
         grid-template-columns: 100% !important;
+        grid-template-areas:    "image"
+                                "popis";
     }
     #topImage h1{
         font-size: 32px;
@@ -140,10 +158,12 @@ body{
 .contentPart img{
     margin: 5%;
     width: 90%;
+    grid-area: image;
 }
 
 .contentPart .popis{
     width: 100%;
+    grid-area: popis;
 }
 h2{
     font-size: 40px;
