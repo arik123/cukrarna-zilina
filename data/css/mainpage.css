@@ -47,7 +47,7 @@ body{
 }
 @media (max-width: 600px){
     #header{
-        position: fixed;
+        position: absolute;
         top: 0px;
         left: 0px;
         right: 0px;
