@@ -21,9 +21,10 @@ body{
     .headLink{
         margin: 18px;
         font-size: 22px;
-        float: right;
+        /*float: right;*/
         color: #fff;
         padding: 7px;
+        text-decoration: none;
     }
     .headButton {
         display: inline-block;
@@ -33,12 +34,13 @@ body{
         background: #fff;
         color: #d21722;
         border-radius: 5px;
-    }
-    a {
         text-decoration: none;
     }
-    a:link, a:visited {
+    .headLink:link, .headLink:visited {
         color: white;
+    }
+    .headButton:link, .headButton:visited {
+        color: #d21722;
     }
     a:hover {
         color: black;
@@ -60,6 +62,7 @@ body{
         font-size: 22px;
         color: #fff;
         padding: 7px;
+        text-decoration: none;
     }
     .headButton {
         text-align: center;
@@ -73,8 +76,11 @@ body{
     a {
         text-decoration: none;
     }
-    a:link, a:visited {
+    .headLink:link, .headLink:visited {
         color: white;
+    }
+    .headButton:link, .headButton:visited {
+        color: #d21722;
     }
     a:hover {
         color: black;
@@ -188,4 +194,12 @@ p{
     background-color:  #f00;
     height: 6px;
     width: 84px;
+}
+#torty{
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+#torty img{
+    width: 35%;
+    height: auto;
 }

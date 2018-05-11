@@ -10,14 +10,42 @@ var filtered = kolace.filter(function(element){
 });
 
 %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%-include("parts/head")%>
-        <script src="/data/js/index.js"></script>
+        
+        <title>Obchod</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/data/JQueryUI/jquery-ui.min.css">
+
+        <script src="/data/JQueryUI/external/jquery/jquery.js"></script> 
+        <script src="/data/JQueryUI/jquery-ui.min.js"></script>
+
+        <link href="/data/css/nakup.css" rel="stylesheet">
+        <script src="/data/js/nakup.js"></script>
     </head>
     <body>
-        <%-include("parts/nav")%>
+        <!-- <%- include("parts/nav")%> -->
+        <div id="header">
+            <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80px" alt="">
+
+            <div id="linky">
+                <a href="/" class="headLink" style="grid-area: t1">
+                    Cukráreň
+                </a>
+
+                <a href="/nakup/"class="headButton" style="grid-area: t2">
+                    Objednávka online
+                </a>
+                <a class="headLink" style="grid-area: t3">
+                    Kontakt
+                </a>
+            </div>
+        </div>
         <div class="content">
             <div id="filter">
                 <form>

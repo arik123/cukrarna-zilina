@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
+body{
+    position: absolute;
+    margin: 0px;
+    font-family: Roboto;
+    right: 0px;
+    top: 80px;
+}
+/*
+
+  /$$$$$$  /$$       /$$$$$$$         /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$
+ /$$__  $$| $$      | $$__  $$       /$$__  $$ /$$__  $$| $$__  $$| $$_____/
+| $$  \ $$| $$      | $$  \ $$      | $$  \__/| $$  \ $$| $$  \ $$| $$      
+| $$  | $$| $$      | $$  | $$      | $$      | $$  | $$| $$  | $$| $$$$$   
+| $$  | $$| $$      | $$  | $$      | $$      | $$  | $$| $$  | $$| $$__/   
+| $$  | $$| $$      | $$  | $$      | $$    $$| $$  | $$| $$  | $$| $$      
+|  $$$$$$/| $$$$$$$$| $$$$$$$/      |  $$$$$$/|  $$$$$$/| $$$$$$$/| $$$$$$$$
+ \______/ |________/|_______/        \______/  \______/ |_______/ |________/
+
+*/
 .item{
     margin: 5px;
     border: 2px blue solid;
@@ -207,4 +227,132 @@ nav {
 
 .err{
     color: red;
+}
+
+
+
+/*
+
+
+
+ /$$   /$$ /$$$$$$$$ /$$      /$$        /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$
+| $$$ | $$| $$_____/| $$  /$ | $$       /$$__  $$ /$$__  $$| $$__  $$| $$_____/
+| $$$$| $$| $$      | $$ /$$$| $$      | $$  \__/| $$  \ $$| $$  \ $$| $$      
+| $$ $$ $$| $$$$$   | $$/$$ $$ $$      | $$      | $$  | $$| $$  | $$| $$$$$   
+| $$  $$$$| $$__/   | $$$$_  $$$$      | $$      | $$  | $$| $$  | $$| $$__/   
+| $$\  $$$| $$      | $$$/ \  $$$      | $$    $$| $$  | $$| $$  | $$| $$      
+| $$ \  $$| $$$$$$$$| $$/   \  $$      |  $$$$$$/|  $$$$$$/| $$$$$$$/| $$$$$$$$
+|__/  \__/|________/|__/     \__/       \______/  \______/ |_______/ |________/
+
+
+*/
+
+
+
+
+
+
+@media (min-width: 600px){
+    #header{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        height: 80px;
+        background-color: #d21722;
+    }
+
+    .headLink{
+        margin: 18px;
+        font-size: 22px;
+        /*float: right;*/
+        color: #fff;
+        padding: 7px;
+        text-decoration: none;
+    }
+    .headButton {
+        display: inline-block;
+        margin: 18px;
+        font-size: 22px;
+        padding: 7px;
+        background: #fff;
+        color: #d21722;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .headLink:link, .headLink:visited {
+        color: white;
+    }
+    .headButton:link, .headButton:visited {
+        color: #d21722;
+    }
+    a:hover {
+        color: black;
+    }
+    #linky{
+        float: right;
+        grid-template-columns: auto auto auto;
+        grid-template-areas: "t1 t2 t3";
+    }
+}
+@media (max-width: 600px){
+    #header{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: #d21722;
+    }
+
+    .headLink{
+        text-align: center;
+        display: block;
+        margin: 18px;
+        font-size: 22px;
+        color: #fff;
+        padding: 7px;
+    }
+    .headButton {
+        text-align: center;
+        margin: 18px;
+        font-size: 22px;
+        padding: 7px;
+        background: #fff;
+        color: #d21722;
+        border-radius: 5px;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:link, a:visited {
+        color: white;
+    }
+    a:hover {
+        color: black;
+    }
+    #znak{
+        display: none;
+        margin-left: 20px;
+    }
+    #linky{
+        width: 100%;
+        grid-template-columns: 100%;
+        grid-template-areas:    "t1"
+                                "t2"
+                                "t3";
+    }
+}
+@media (max-width: 670px){
+    #znak{
+        display: none !important;
+        margin-left: 20px;
+    }
+}
+
+#znak{
+    margin-left: 20px;
+}
+
+#linky{
+    display: inline-block;
 }
