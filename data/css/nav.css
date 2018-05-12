@@ -4,10 +4,12 @@
 .headButton:link, .headButton:visited {
     color: #d21722;
 }
-
+#linky a:hover{
+    color: black;
+}
 @media (min-width: 600px){
     #header{
-        position: absolute;
+        position: fixed;
         top: 0px;
         left: 0px;
         right: 0px;
@@ -16,7 +18,7 @@
     }
 
     .headLink{
-        margin: 18px;
+        margin: 20px;
         font-size: 22px;
         /*float: right;*/
         color: #fff;
@@ -25,9 +27,9 @@
     }
     .headButton {
         display: inline-block;
-        margin: 18px;
+        margin: 20px;
         font-size: 22px;
-        padding: 7px;
+        padding: 6.5px;
         background: #fff;
         color: #d21722;
         border-radius: 5px;
