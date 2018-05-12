@@ -43,10 +43,10 @@
 }
 @media (max-width: 600px){
     #header{
-        position: absolute;
+        /*position: absolute;
         top: 0px;
         left: 0px;
-        right: 0px;
+        right: 0px;*/
         background-color: #d21722;
     }
 

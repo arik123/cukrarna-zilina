@@ -5,7 +5,11 @@ body{
     font-family: Roboto;
     right: 0px;
     top: 0px;
-    padding-top: 80px;
+}
+@media(min-width:600px){
+    body{
+        padding-top: 80px;
+    }
 }
 /*
 
@@ -29,7 +33,7 @@ body{
     height: 250
 }
 
-.list{
+ #list{
     text-align: center;
     overflow: hidden;
 }
@@ -250,6 +254,34 @@ nav {
 
 
 
-
+.filterOne{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 15px;
+    border:  2px solid;
+    border-radius: 5px;
+    color: #d21722;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+.filterOne[data-selected="true"]{
+    background-color: #d21722;
+    color: #fff;
+}
+#filter{
+    margin-left: 5vw;
+    margin-right: 5vw;
+    overflow: hidden;
+}
+@media (min-width:600px){
+    
+    .filterOne{
+        float: left;
+    }
+}
 
 

@@ -39,11 +39,9 @@ Schema :  Meno, obrazok, popis, input:{pocet}, cena, datum donesenia {HTML CALEN
 */
 
 app.get('/nakup/', (req, res)=>{
-    console.log(req.path);
     if(typeof req.session.kosik == "undefined") req.session.kosik = [];
-    console.log(req.query);
     let admin = (typeof req.session.admin != "undefined" && req.session.admin != false);
-    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace, "admin": admin, "pattern": pattern, "querry": req.query});
+    res.render("nakup", {"kosik": req.session.kosik, "kolace": kolace, "admin": admin, "pattern": pattern/*, "querry": req.query*/});
 });
 
 app.get('/', (req, res)=>{
@@ -144,4 +142,11 @@ app.post("/nakup/", (req, res)=>{  //pre admina
         fs.writeFileSync("./vsetky.json", JSON.stringify(kolace));
         res.redirect(303, "/nakup/");
     }
+});
+
+app.get('/kolace/', (req, res)=>{
+    console.log(req.query)
+    if(typeof req.session.kosik == "undefined") req.session.kosik = [];
+    let admin = (typeof req.session.admin != "undefined" && req.session.admin != false);
+    res.render("parts/kolace", {"kolace": kolace, "admin": admin, "querry": req.query});
 });

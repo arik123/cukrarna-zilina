@@ -179,3 +179,92 @@ function objednaj(){
     if(current[current.length-1] != "/") window.location.href = current + "/objednavka";
     else window.location.href = current + "objednavka";
 }
+
+
+/*
+
+
+
+ /$$   /$$ /$$$$$$$$ /$$      /$$        /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$$
+| $$$ | $$| $$_____/| $$  /$ | $$       /$$__  $$ /$$__  $$| $$__  $$| $$_____/
+| $$$$| $$| $$      | $$ /$$$| $$      | $$  \__/| $$  \ $$| $$  \ $$| $$      
+| $$ $$ $$| $$$$$   | $$/$$ $$ $$      | $$      | $$  | $$| $$  | $$| $$$$$   
+| $$  $$$$| $$__/   | $$$$_  $$$$      | $$      | $$  | $$| $$  | $$| $$__/   
+| $$\  $$$| $$      | $$$/ \  $$$      | $$    $$| $$  | $$| $$  | $$| $$      
+| $$ \  $$| $$$$$$$$| $$/   \  $$      |  $$$$$$/|  $$$$$$/| $$$$$$$/| $$$$$$$$
+|__/  \__/|________/|__/     \__/       \______/  \______/ |_______/ |________/
+
+
+*/
+
+
+function filter(element){
+    /*
+    var computedStyle = window.getComputedStyle(element, null);
+
+    if(computedStyle.backgroundColor == "rgb(210, 23, 34)"){//not selected
+
+        element.style.backgroundColor = "#fff";
+        element.style.color = "#d21722";
+        
+    }
+    else{// selected
+        
+        element.style.backgroundColor = "#d21722";
+        element.style.color = "#fff";
+        
+    }
+    */
+
+    if(element.dataset.selected == "true"){
+        element.dataset.selected = false;
+    }
+    else{
+        element.dataset.selected = true;
+    }
+
+    var filter = document.getElementById("filter");
+    var query = [];
+
+    for(let i = 0; i < filter.children.length; i++){
+        if(filter.children[i].dataset.selected == "true"){
+            query.push(filter.children[i].innerHTML);
+        }
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+           if (xmlhttp.status == 200) {
+               console.log(document.getElementById("list"));
+               document.getElementById("list").innerHTML = xmlhttp.responseText;
+           }
+           else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+console.log(JSON.stringify({'ja': query}))
+    xmlhttp.open("GET", "/kolace/?"+serialize({'category': query}), true);
+    xmlhttp.send();
+}
+
+
+function serialize(obj, prefix) {
+    var str = [],
+      p;
+    for (p in obj) {
+      if (obj.hasOwnProperty(p)) {
+        var k = prefix ? prefix + "[" + p + "]" : p,
+          v = obj[p];
+        str.push((v !== null && typeof v === "object") ?
+          serialize(v, k) :
+          encodeURIComponent(k) + "=" + encodeURIComponent(v));
+      }
+    }
+    return str.join("&");
+  }
