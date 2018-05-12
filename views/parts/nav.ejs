@@ -1,11 +1,25 @@
-<div id="top"> </div>
-<nav>
-    <a href="/">Uvod</a>
-    <a href="/nakup/">Nakup</a>
-    <a href="">Link3</a>
-</nav>
+<link href="/data/css/nav.css" rel="stylesheet">
+<script src="/data/js/scroll.js"></script>
+
+<div id="header">
+    <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80px" alt="">
+
+    <div id="linky">
+        <a href="/" class="<%-(page == 'index') ? 'headButton' : 'headLink'%>" style="grid-area: t1">
+            Cukráreň
+        </a>
+
+        <a href="/nakup/" class="<%-(page == 'nakup') ? 'headButton' : 'headLink'%>" style="grid-area: t2">
+            Objednávka online
+        </a>
+        <a href="/kontakt/" class="<%-(page == 'kontakt') ? 'headButton' : 'headLink'%>" style="grid-area: t3">
+            Kontakt
+        </a>
+    </div>
+</div>
 
 <%
+/*
 if(typeof NOkosik == "undefined" || NOkosik == false){
 %>
 <a herf="javascript:void(0)" class="kosik">
@@ -21,5 +35,5 @@ if(typeof NOkosik == "undefined" || NOkosik == false){
     </div>  
 </a>
 <%
-}
+}*/
 %>

@@ -39,6 +39,7 @@ Schema :  Meno, obrazok, popis, input:{pocet}, cena, datum donesenia {HTML CALEN
 */
 
 app.get('/nakup/', (req, res)=>{
+    console.log(req.path);
     if(typeof req.session.kosik == "undefined") req.session.kosik = [];
     console.log(req.query);
     let admin = (typeof req.session.admin != "undefined" && req.session.admin != false);

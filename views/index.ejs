@@ -10,22 +10,7 @@
 
     </head>
     <body>
-        <div id="header">
-            <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80px" alt="">
-
-            <div id="linky">
-                <a href="/" class="headButton" style="grid-area: t1">
-                    Cukráreň
-                </a>
-
-                <a href="/nakup/"class="headLink" style="grid-area: t2">
-                    Objednávka online
-                </a>
-                <a class="headLink" style="grid-area: t3">
-                    Kontakt
-                </a>
-            </div>
-        </div>
+    <%- include("parts/nav", {'page': "index"})%> 
         <div id="topImage">
             <h1>Vaša cukráreň a kaviareň v centre žiliny</h1>
         </div>

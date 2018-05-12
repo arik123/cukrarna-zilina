@@ -29,23 +29,7 @@ var filtered = kolace.filter(function(element){
         <script src="/data/js/nakup.js"></script>
     </head>
     <body>
-        <!-- <%- include("parts/nav")%> -->
-        <div id="header">
-            <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80px" alt="">
-
-            <div id="linky">
-                <a href="/" class="headLink" style="grid-area: t1">
-                    Cukráreň
-                </a>
-
-                <a href="/nakup/"class="headButton" style="grid-area: t2">
-                    Objednávka online
-                </a>
-                <a class="headLink" style="grid-area: t3">
-                    Kontakt
-                </a>
-            </div>
-        </div>
+         <%- include("parts/nav", {'page': "nakup"})%> 
         <div class="content">
             <div id="filter">
                 <form>
