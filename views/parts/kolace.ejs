@@ -86,4 +86,7 @@ filtered.forEach((kolac, index)=>{%>
         <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
 <%*/}%>
 </div>
-<% }) %>
+<% }) 
+if(filtered.length == 0){%>
+<h3>Nič sme nenašli</h3>
+<%}%>
