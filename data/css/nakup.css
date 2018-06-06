@@ -262,6 +262,7 @@ body{
     margin: 10px;
 }
 .counterHolder{
+    position: relative;
     margin-left: 12px;
     width: 90px;
     display: inline-block;
@@ -273,7 +274,12 @@ body{
     user-select: none; /* Standard */
 }
 .counterPlus{
-    padding-left: 2px;
+    position: absolute;
+    width: 9px;
+    height: 25px; 
+    top: 5px;
+    left: 6px;
+    text-align: center;
     display: inline-block;
     font-size: 18px;
 
@@ -297,9 +303,13 @@ body{
     user-select: none; /* Standard */
 }
 .counterMinus{
-    padding-right: 2px;
+    position: absolute;
+    width: 9px;
+    height: 25px;
+    right: 6px;
+    text-align: center;
     display: inline-block;
-    font-size: 18px;
+    font-size: 25px;
 
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
