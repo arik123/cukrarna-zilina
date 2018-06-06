@@ -306,7 +306,7 @@ body{
     position: absolute;
     width: 9px;
     height: 25px;
-    right: 6px;
+    right: 7px;
     text-align: center;
     display: inline-block;
     font-size: 25px;
@@ -324,6 +324,12 @@ body{
     margin: 5px;
     background-color: #d21722;
     border-radius: 5px;
+    color: #FFF;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .bottom{
