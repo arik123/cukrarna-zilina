@@ -83,7 +83,7 @@
                                 "t3";
     }
 }
-@media (max-width: 670px){
+@media (max-width: 700px){
     #znak{
         display: none !important;
         margin-left: 20px;

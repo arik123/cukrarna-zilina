@@ -11,7 +11,7 @@ var filtered = kolace.filter(function(element){
 });
 
 filtered.forEach((kolac, index)=>{%>  
-
+<!--
 <div class="item">
     <div class="obrazok" style="background: url(<%-kolac.obrazok%>) no-repeat center center; background-size: contain">
         <div class="info">
@@ -42,5 +42,46 @@ filtered.forEach((kolac, index)=>{%>
         <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
         <%}%>
     </div>
+</div>
+-->
+
+
+<div class="item">
+    <img class="obrazok" src="<%-kolac.obrazok%>">
+    <div class="kolacMeno">
+        <%-kolac.meno%>
+    </div>    
+    <div class="kolacVaha">
+        <%-kolac.vaha%> g
+    </div> 
+    <div class="kolacCena">
+        <%-kolac.cena%>€
+    </div> 
+    <br>
+    <div class="counterHolder">
+        <div class="counterPlus">
+            +
+        </div>
+        <div class="counterDisplay">
+            0ks
+        </div>
+        <div class="counterMinus">
+            -
+        </div>
+    </div>
+    <div class="kolacPridaj">
+        Pridať
+    </div>
+        <%if(admin){%>
+            <form method="post">
+            cena:
+                <input type="number" name="cena" value="<%-parseFloat(kolac.cena)%>" step='0.01'>
+                <input type="hidden" name="meno" value = "<%-kolac.meno%>" />
+                <button type="submit" style="color: <%-(typeof kolac.touched != 'undefined' && kolac.touched != false)? 'black' : 'red'%>">Updatni</button>
+            </form>
+        <%} else {/*%>
+        <input type="number" name="pocet" value="">
+        <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
+<%*/}%>
 </div>
 <% }) %>
