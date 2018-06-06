@@ -190,8 +190,11 @@ body{
 */
 
 #list{
+    display: flex;
     text-align: center;
     overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .filterOne{
@@ -232,16 +235,18 @@ body{
 .obrazok{
     width: 180px;
     height: 180px;
-    margin: 10px;
+    margin: 9px;
     object-fit: contain;
+    border: 1px #ddd solid;
 }
 
 .item{
+    position: relative;
     width: 200px;
     height: 360px;
     display: inline-block;
     text-align:center;
-    border: blue 2px solid;
+    border: #333 1px solid;
     margin: 5px;
 }
 .kolacVaha{
@@ -257,11 +262,18 @@ body{
     margin: 10px;
 }
 .counterHolder{
+    margin-left: 12px;
+    width: 90px;
     display: inline-block;
     border: #ccc 2px solid;
     border-radius: 5px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 .counterPlus{
+    padding-left: 2px;
     display: inline-block;
     font-size: 18px;
 
@@ -285,6 +297,7 @@ body{
     user-select: none; /* Standard */
 }
 .counterMinus{
+    padding-right: 2px;
     display: inline-block;
     font-size: 18px;
 
@@ -295,8 +308,15 @@ body{
 }
 
 .kolacPridaj{
+    width: 64px;
     display: inline-block;
     padding: 8px;
     margin: 5px;
     background-color: #d21722;
+    border-radius: 5px;
+}
+
+.bottom{
+    position: absolute;
+    bottom: 5px;
 }

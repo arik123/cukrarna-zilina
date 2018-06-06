@@ -51,6 +51,7 @@ filtered.forEach((kolac, index)=>{%>
     <div class="kolacMeno">
         <%-kolac.meno%>
     </div>    
+    <div class="bottom">
     <div class="kolacVaha">
         <%-kolac.vaha%> g
     </div> 
@@ -71,6 +72,7 @@ filtered.forEach((kolac, index)=>{%>
     </div>
     <div class="kolacPridaj">
         Pridať
+    </div>
     </div>
         <%if(admin){%>
             <form method="post">

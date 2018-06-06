@@ -15,6 +15,7 @@
         right: 0px;
         height: 80px;
         background-color: #d21722;
+        z-index: 10;
     }
 
     .headLink{
