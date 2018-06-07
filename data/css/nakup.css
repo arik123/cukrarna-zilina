@@ -288,7 +288,21 @@ body{
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 }
-.counterDisplay{
+div[class=counterDisplay]{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: inline-block;
+    font-size: 14px;
+    width: 42px;
+    height: 14px;
+    border: #eee 1px solid;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+input[class=counterDisplay]{
     padding-top: 8px;
     padding-bottom: 8px;
     display: inline-block;

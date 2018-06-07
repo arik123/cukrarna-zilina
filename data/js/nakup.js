@@ -117,25 +117,6 @@ function tomorrow() {
 
 
 
-var kosikON = false
-document.onclick = function(event) { 
-    var path = event.path || (event.composedPath && event.composedPath()) || composedPath(event.target);
-    var isKosik = containClass(path, "kosik");
-    if(isKosik){
-        if(!kosikON){
-            kosikON = true;
-            updateKosik(kosikON);
-        }
-        kosikON = true;
-        updateKosik(kosikON);
-    }
-    else{
-        if(kosikON){
-            kosikON = false;
-            updateKosik(kosikON);
-        }
-    }
-}
 
 function composedPath (el) {
 
@@ -196,6 +177,41 @@ function objednaj(){
 
 
 */
+
+
+var lastWritableElement = null;
+var kosikON = false
+var dontRegisterClick = false;
+document.onclick = function(event) { 
+    if(dontRegisterClick){
+        dontRegisterClick = false;
+        return;
+    }
+    var path = event.path || (event.composedPath && event.composedPath()) || composedPath(event.target);
+    var isKosik = containClass(path, "kosik");
+    var isWritable = (path[0] == lastWritableElement);
+    console.log(path);
+    if(isKosik){
+        if(!kosikON){
+            kosikON = true;
+            updateKosik(kosikON);
+        }
+        kosikON = true;
+        updateKosik(kosikON);
+    }
+    else if(!isWritable){
+        if(lastWritableElement!= null){
+            makeWritable(lastWritableElement, false);
+        }
+    }
+    else{
+        if(kosikON){
+            kosikON = false;
+            updateKosik(kosikON);
+        }
+    }
+}
+
 
 
 function filter(element){
@@ -267,4 +283,42 @@ function serialize(obj, prefix) {
       }
     }
     return str.join("&");
-  }
+}
+
+function writeON(element, e){
+    dontRegisterClick = true;
+    makeWritable(element, true);
+}
+
+function makeWritable(element, writable) {
+    if(writable){
+        let newElement = document.createElement("input");
+        newElement.classList.add("counterDisplay");
+        newElement.type = 'number';
+        newElement.value=element.dataset.pocet;
+        newElement.addEventListener("keyup", function(event) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+              // Trigger the button element with a click
+              makeWritable(this, false)
+            }
+          });
+        element.parentNode.replaceChild(newElement,element);
+        lastWritableElement = newElement;
+        console.log('tu')
+    }
+    else{
+        let newElement = document.createElement("div");
+        newElement.classList.add("counterDisplay");
+        newElement.onclick = function(){writeON(this, event)};
+        console.log(newElement.onclick)
+        val = Number(element.value);
+        console.log(val)
+        newElement.dataset.pocet = val;
+        newElement.innerHTML = val + "ks";
+        element.parentNode.replaceChild(newElement,element);
+        lastWritableElement = null;
+    }
+}
