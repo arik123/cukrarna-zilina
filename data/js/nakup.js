@@ -305,20 +305,44 @@ function makeWritable(element, writable) {
               makeWritable(this, false)
             }
           });
+          newElement.addEventListener("click", function() {
+            this.select();
+          });
         element.parentNode.replaceChild(newElement,element);
         lastWritableElement = newElement;
-        console.log('tu')
+        lastWritableElement.select();
     }
     else{
         let newElement = document.createElement("div");
         newElement.classList.add("counterDisplay");
         newElement.onclick = function(){writeON(this, event)};
-        console.log(newElement.onclick)
         val = Number(element.value);
-        console.log(val)
+        if(val < 0) val = 0;
         newElement.dataset.pocet = val;
         newElement.innerHTML = val + "ks";
         element.parentNode.replaceChild(newElement,element);
         lastWritableElement = null;
+    }
+}
+
+function add(element){
+    if(element.parentNode.children[1].tagName.toLowerCase() == "div"){
+        element.parentNode.children[1].innerHTML = (Number(element.parentNode.children[1].dataset.pocet) + 1 ) + "ks";
+        element.parentNode.children[1].dataset.pocet = (Number(element.parentNode.children[1].dataset.pocet) + 1 );
+    }
+    else if(element.parentNode.children[1].tagName.toLowerCase() == "input"){
+        element.parentNode.children[1].value++;
+    }
+}
+
+function sub(element){
+    if(element.parentNode.children[1].tagName.toLowerCase() == "div"){
+        if(Number(element.parentNode.children[1].dataset.pocet) == 0) return;
+        element.parentNode.children[1].innerHTML = (Number(element.parentNode.children[1].dataset.pocet) - 1 ) + "ks";
+        element.parentNode.children[1].dataset.pocet = (Number(element.parentNode.children[1].dataset.pocet) - 1 );
+    }
+    else if(element.parentNode.children[1].tagName.toLowerCase() == "input"){
+        if(element.parentNode.children[1].value == 0) return;
+        element.parentNode.children[1].value--;
     }
 }

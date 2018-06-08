@@ -274,11 +274,13 @@ body{
     user-select: none; /* Standard */
 }
 .counterPlus{
+    padding-top: 6px;
+    padding-bottom: 10px;
     position: absolute;
-    width: 9px;
-    height: 25px; 
-    top: 5px;
-    left: 6px;
+    width: 24px;
+    height: 18px; 
+    top: 0px;
+    left: 0px;
     text-align: center;
     display: inline-block;
     font-size: 18px;
@@ -316,11 +318,17 @@ input[class=counterDisplay]{
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 .counterMinus{
     position: absolute;
-    width: 9px;
-    height: 25px;
-    right: 7px;
+    width: 24px;
+    height: 34px;
+    right: 0px;
     text-align: center;
     display: inline-block;
     font-size: 25px;

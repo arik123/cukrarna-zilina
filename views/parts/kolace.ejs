@@ -60,13 +60,13 @@ filtered.forEach((kolac, index)=>{%>
     </div> 
     <br>
     <div class="counterHolder">
-        <div class="counterPlus">
+        <div class="counterPlus" onclick="add(this)">
             +
         </div>
         <div class="counterDisplay" onclick="writeON(this, event)" data-pocet="0">
             0ks
         </div>
-        <div class="counterMinus">
+        <div class="counterMinus" onclick="sub(this)">
             -
         </div>
     </div>
