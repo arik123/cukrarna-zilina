@@ -7,7 +7,7 @@ body{
     right: 0px;
     top: 0px;
 }
-@media(min-width:600px){
+@media(min-width:620px){
     body{
         padding-top: 80px;
     }
@@ -24,56 +24,6 @@ body{
  \______/ |________/|_______/        \______/  \______/ |_______/ |________/
 
 */
-
-
-
-
-
-.kosik{
-    padding: 1vw;
-    padding-top: 10px;
-    padding-bottom: 0px;
-    position: fixed;
-    top: 0px;
-    right: 0;
-    text-align: center;
-    /*overflow: hidden;*/
-    float: right;
-    width: 18%;
-    min-width: 180px;
-}
-
-.kosik > *:first-child {
-    margin-bottom: 15px;
-}
-
-#vkosiku{
-    padding: 10px;
-    background-color: #ddd;
-    display: none;
-    
-}
-
-.addToCart{
-    width: 100px;
-    display: block;
-    border: 2px #888 solid;
-    margin: auto;
-    margin-top: 5px;
-}
-.addToCart:hover{
-    background-color: #ddd;
-}
-.addToCart:active{
-    background-color: #aaa;
-}
-.order{
-    text-align: center;
-}
-
-.kolacVKosiku{
-    border: 2px solid #f00;
-}
 
 
 .animate {
@@ -101,76 +51,6 @@ body{
       transform: scale(0.05);
  }
 }
-
-#kosikIMG{
-    position: relative;
-    background: url(https://www.prohunter.sk/resize/e/800/800/files/ikony-ako/nakupny-kosik.png) no-repeat center center; 
-    background-size: contain; 
-    width: 20px;
-    height: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-    
-#kosikPocet{
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    border-radius: 7px;
-    background-color: red;
-    font-size: 15px;
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
-#objednaj{
-    margin-left: 10px;
-    display: inline-block;
-    background-color: #10c630;
-    padding: 5px;
-    border: 1px solid #888;
-    border-radius: 5px;
-}
-
-#kosikSpolu{
-    margin-top: 10px;
-}
-
-.remFromCart{
-    margin-left: 10px;
-    display: inline-block;
-    background-color: #e62030;
-    padding: 5px;
-    border: 1px solid #888;
-    border-radius: 5px;
-}
-.objednajVKosiku{
-    
-    margin: auto;
-}
-#objednavka{
-    text-align: center;
-}
-#objednavkaSpolu{
-    margin: 20px;
-    padding: 20px;
-    border: #888 solid 3px;
-}
-
-#login{
-    /*position: absolute;*/
-    text-align: center;
-    margin: auto;
-    margin-top: 40vh;
-    padding: 40px;
-    border: #aaa;
-    background-color: #ccc;
-}
-
-.err{
-    color: red;
-}
-
 
 
 /*
@@ -219,7 +99,7 @@ body{
 #filter{
     overflow: hidden;
 }
-@media (min-width:600px){
+@media (min-width:620px){
     
     .filterOne{
         float: left;
@@ -320,8 +200,9 @@ input[class=counterDisplay]{
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+    appearance: none;
+    -webkit-appearance: none; 
+    margin: 0; 
 }
 
 .counterMinus{

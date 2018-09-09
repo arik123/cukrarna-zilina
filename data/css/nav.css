@@ -7,7 +7,7 @@
 #linky a:hover{
     color: black;
 }
-@media (min-width: 600px){
+@media (min-width: 620px){
     #header{
         position: fixed;
         top: 0px;
@@ -19,11 +19,11 @@
     }
 
     .headLink{
+        display: inline-block;
         margin: 20px;
         font-size: 22px;
-        /*float: right;*/
         color: #fff;
-        padding: 7px;
+        padding: 6.5px;
         text-decoration: none;
     }
     .headButton {
@@ -38,11 +38,15 @@
     }
     #linky{
         float: right;
-        grid-template-columns: auto auto auto;
-        grid-template-areas: "t1 t2 t3";
+        grid-template-columns: auto auto auto auto;
+        grid-template-areas: "t1 t2 t3 t4";
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
     }
 }
-@media (max-width: 600px){
+@media (max-width: 619px){
     #header{
         /*position: absolute;
         top: 0px;
@@ -81,10 +85,11 @@
         grid-template-columns: 100%;
         grid-template-areas:    "t1"
                                 "t2"
-                                "t3";
+                                "t3"
+                                "t4";
     }
 }
-@media (max-width: 700px){
+@media (max-width: 770px){
     #znak{
         display: none !important;
         margin-left: 20px;
@@ -97,4 +102,23 @@
 
 #linky{
     display: inline-block;
+}
+
+
+#kosik img{
+    vertical-align:bottom;
+}
+
+#vkosiku{
+    display: none;
+}
+@media(min-width: 620px){
+    #vkosiku{
+        width: 300px;
+        height: 10vh;
+        position: fixed;
+        top: 80px;
+        right: 0px;
+        background-color: aqua;
+    }
 }

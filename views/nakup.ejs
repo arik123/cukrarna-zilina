@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
     <head>
         
         <title>Obchod</title>
@@ -19,7 +19,7 @@
             <h1>Zákusky</h1>
             <div id="filter">
                 <%pattern.category.forEach((element)=>{%>
-                <div unselectable="on" class="filterOne" data-selected="false" onclick="filter(this)"><%-element%></div>
+                <div class="filterOne" data-selected="false" onclick="filter(this)"><%-element%></div>
                 <%});%>
             </div>
             

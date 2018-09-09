@@ -1,8 +1,9 @@
 <link href="/data/css/nav.css" rel="stylesheet">
 <script src="/data/js/scroll.js"></script>
-
+<script src="/data/js/kosik.js"></script>
+<%if(typeof page == "undefined") page = "";%>
 <div id="header">
-    <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80px" alt="">
+    <img id="znak" src="http://www.delikana.cz/img/logodelikananew.png" height="80" alt="">
 
     <div id="linky">
         <a href="/" class="<%-(page == 'index') ? 'headButton' : 'headLink'%>" style="grid-area: t1">
@@ -15,25 +16,14 @@
         <a href="/kontakt/" class="<%-(page == 'kontakt') ? 'headButton' : 'headLink'%>" style="grid-area: t3">
             Kontakt
         </a>
+
+        <div id="kosik" class="headButton"style="grid-area: t4">
+            <img src="/data/img/cart.svg" alt="kosik" width="27" height="27">   
+            <div id="vkosiku">
+                <%-include("./kosik")%>
+            </div>
+        </div>
     </div>
+    
 </div>
 
-<%
-/*
-if(typeof NOkosik == "undefined" || NOkosik == false){
-%>
-<a herf="javascript:void(0)" class="kosik">
-    <div id="kosikIMG">
-        <%if(kosik.length > 0){%>
-        <div id="kosikPocet">
-            <%-kosik.length%>
-        </div>    
-        <%}%>
-    </div>
-    <div id="vkosiku">
-        <%-include("./kosik")%>
-    </div>  
-</a>
-<%
-}*/
-%>

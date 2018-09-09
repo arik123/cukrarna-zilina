@@ -32,9 +32,11 @@ window.addEventListener('scroll', ()=>{
         }
         else if(scroll != 0 && !scrollAdded){
             style.sheet.insertRule('#header{height:40px !important;}', 0);
-            style.sheet.insertRule('#znak{max-height: 40px}', 0);
-            style.sheet.insertRule('#linky{height: 40px}', 0);
-            style.sheet.insertRule('.headButton{margin:1px !important; padding:5px !important;}', 0);
+            style.sheet.insertRule('#znak{max-height: 40px !important;}', 0);
+            style.sheet.insertRule('#linky{height: 40px !important;}', 0);
+            style.sheet.insertRule('.headButton{margin-top:1px !important; margin-bottom:1px !important; !important; padding:5px !important;}', 0);
+            style.sheet.insertRule('.headLink{margin-top:1px !important; margin-bottom:1px !important; padding:5px !important;}', 0);
+            style.sheet.insertRule('@media(min-width: 620px) { #vkosiku{top: 40px !important; } }', 0);
             
             scrollAdded=true;
         }
