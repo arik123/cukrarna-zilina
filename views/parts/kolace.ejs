@@ -11,49 +11,48 @@ var filtered = kolace.filter(function(element){
 });
 
 filtered.forEach((kolac, index)=>{%>  
-
-
 <div class="item">
     <img class="obrazok" src="<%-kolac.obrazok%>" alt="kolac" >
-    <div class="kolacMeno">
+    <div class="kolacMeno" data-meno="<%-kolac.meno%>">
         <%-kolac.meno%>
     </div>    
+    <%if(!admin){%>
     <div class="bottom">
-    <div class="kolacVaha">
-        <%-kolac.vaha%> g
-    </div> 
-    <div class="kolacCena">
-        <%-kolac.cena%>€
-    </div> 
-    <br>
-    <div class="counterHolder">
-        <div class="counterPlus" onclick="add(this)">
-            +
+        <div class="kolacVaha">
+            <%-kolac.vaha%> g
+        </div> 
+        <div class="kolacCena">
+            <%-kolac.cena%>€
+        </div> 
+        <br>
+        <div class="counterHolder">
+            <div class="counterPlus" onclick="add(this)">
+                +
+            </div>
+            <div class="counterDisplay" onclick="writeON(this, event)" data-pocet="0">
+                0ks
+            </div>
+            <div class="counterMinus" onclick="sub(this)">
+                -
+            </div>
         </div>
-        <div class="counterDisplay" onclick="writeON(this, event)" data-pocet="0">
-            0ks
-        </div>
-        <div class="counterMinus" onclick="sub(this)">
-            -
-        </div>
+        <div class="kolacPridaj" onclick="addToCart(this)">
+            Pridať
+        </div>  
     </div>
-    <div class="kolacPridaj">
-        Pridať
-    </div>
-    </div>
-        <%if(admin){%>
+<%}%>
+    <%if(admin){%>
+        <div class="bottom">
             <form method="post">
             cena:
                 <input type="number" name="cena" value="<%-parseFloat(kolac.cena)%>" step='0.01'>
                 <input type="hidden" name="meno" value = "<%-kolac.meno%>" />
                 <button type="submit" style="color: <%-(typeof kolac.touched != 'undefined' && kolac.touched != false)? 'black' : 'red'%>">Updatni</button>
             </form>
-        <%} else {/*%>
-        <input type="number" name="pocet" value="">
-        <div class="addToCart" data-id="<%-index%>" onclick="javascript:(this.parentElement.children[0].value!='') ? add(this.parentElement.children[0].value, this.dataset.id, this.parentElement.children[0]) : alert('zadaj pocet')">stlac</div>
-<%*/}%>
+        </div>
+    <%}%>
 </div>
 <% }) 
 if(filtered.length == 0){%>
-<h3>Nič sme nenašli</h3>
+<h3>Ospravedlňujeme sa ale nič z tejto kategórie momentálne nieje v ponuke</h3>
 <%}%>

@@ -10,7 +10,7 @@ var style = (function() {
     // Add the <style> element to the page
     document.head.appendChild(style);
   
-    console.log(style.sheet.cssRules); // length is 0, and no rules
+    //console.log(style.sheet.cssRules); // length is 0, and no rules
 
     return style;
 })();

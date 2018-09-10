@@ -110,7 +110,7 @@ function filter(element){
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
            if (xmlhttp.status == 200) {
-               console.log(document.getElementById("list"));
+               //console.log(document.getElementById("list"));
                document.getElementById("list").innerHTML = xmlhttp.responseText;
            }
            else if (xmlhttp.status == 400) {
@@ -121,7 +121,7 @@ function filter(element){
            }
         }
     };
-console.log(JSON.stringify({'ja': query}))
+//console.log(JSON.stringify({'ja': query}))
     xmlhttp.open("GET", "/kolace/?"+serialize({'category': query}), true);
     xmlhttp.send();
 }

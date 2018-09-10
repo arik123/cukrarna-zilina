@@ -58,26 +58,30 @@ app.get('/objednavkaUp/', (req, res)=> {
 
 
 app.post('/addToCart/', (req,res)=>{
-    if(typeof req.body.id != "undefined" && typeof req.body.pocet != "undefined" && Math.floor(Number(req.body.pocet)) > 0) {
+    console.log(JSON.stringify(req.body.name))
+    if(typeof req.body.name != "undefined" && typeof kolace.find((kolac)=>{return kolac.meno === req.body.name}) != "undefined" && typeof req.body.pocet != "undefined" && Math.floor(Number(req.body.pocet)) > 0) {
+        console.log("adding")
         if( typeof req.session.kosik != "undefined"){
-            var existuje = "nie";
+            var existuje = false;
             req.session.kosik.forEach((item, index) => {
-                if(item.id == req.body.id){
+                if(item.name == req.body.name){
                     existuje = index;
                 }
             });
-            if(existuje !== "nie"){
+            if(existuje !== false){
                 var cislo = Number(req.session.kosik[existuje].pocet);
                 req.session.kosik[existuje].pocet = Math.floor(Number(req.body.pocet)) + cislo;
             }
             else{
-                req.session.kosik.push({"id": req.body.id, "pocet": Math.floor(Number(req.body.pocet)) });
+                req.session.kosik.push({"name": req.body.name, "pocet": Math.floor(Number(req.body.pocet)) });
             }
-            
         }
         else{
-            req.session.kosik = [{"id": req.body.id, "pocet": Math.floor(Number(req.body.pocet))}];
+            req.session.kosik = [{"name": req.body.name, "pocet": Math.floor(Number(req.body.pocet))}];
         }
+    }
+    else if(typeof req.body.name != "undefined"  && typeof req.body.pocet != "undefined" && Math.floor(Number(req.body.pocet))> 0){
+        console.log('nezname meno')
     }
     res.end();
 });
