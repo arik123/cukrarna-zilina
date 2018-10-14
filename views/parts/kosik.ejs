@@ -1,6 +1,6 @@
 
 <%
-if(typeof kosik != undefined){
+if(typeof kosik != "undefined"){
     var cenaSpolu = 0;
     kosik.forEach((item)=>{
        cenaSpolu += kolace.find((kolac)=>{return kolac.meno == item.name}).cena * item.pocet;
