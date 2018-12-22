@@ -5,7 +5,7 @@ var helmet = require('helmet');
 var session = require('express-session');
 var scrap = require("./scrap.js")
 var config = JSON.parse(fs.readFileSync("./config.json"));
-//let sseExpress = require('sse-express');
+
 
 var app = express();
 app.set('view engine', 'ejs');
