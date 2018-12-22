@@ -60,7 +60,7 @@ function containId(path, find){
 
 function updateKosik(display){
     var vkosiku = document.getElementById("vkosiku");
-    if(display)vkosiku.style.display = "block";
+    if(display)vkosiku.style.display = "inline-block";
     else vkosiku.style.display = "none";
 }
 

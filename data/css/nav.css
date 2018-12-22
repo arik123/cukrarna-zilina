@@ -111,6 +111,7 @@
 
 #vkosiku{
     display: none;
+    overflow: visible;
 }
 @media(min-width: 620px){
     #vkosiku{
